@@ -66,9 +66,7 @@ module.exports = {
   ],
   output: {
     filename: devMode ? "[name].js" : "[name].[hash].js",
-    path: path.resolve(__dirname, "dist"),
-    chunkFilename: "[name].[chunkhash].bundle.js",
-    publicPath: "/"
+    path: path.resolve(__dirname, "dist")
   },
   optimization: {
     runtimeChunk: "single",
