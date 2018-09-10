@@ -8,6 +8,7 @@ const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   entry: {
+    polyfill: "babel-polyfill",
     app: "./src/scripts/index.js"
   },
   module: {

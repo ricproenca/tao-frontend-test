@@ -2,3 +2,40 @@ html {
   color: #222;
   font-size: 1em;
 }
+
+/* screen reader only*/
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+
+/* All images shoiul be responsive*/
+.img {
+  max-width: 100%; /* scales the image to fit the width of its container */
+  display: block; /* starts on a new line, and takes up the whole width */
+  height: auto; /* keeps the original aspect ratio of the image */
+}
+
+/************
+MEDIA QUERIES
+**************/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

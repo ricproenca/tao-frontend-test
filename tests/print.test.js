@@ -1,9 +1,9 @@
-import { text } from "../src/scripts/dummyText";
+import { dummyText } from "../src/scripts/constants/constants";
 
-const EXAMPLE_TEXT = "Just a dummy text!";
+const EXAMPLE_TEXT = "Just a dummy text for testing JEST!";
 
-describe("Dumb test", () => {
-  it("dummy text", () => {
-    expect(text).toBe(EXAMPLE_TEXT);
+describe("Just a dummy test", () => {
+  it("is dummy text correct", () => {
+    expect(dummyText).toBe(EXAMPLE_TEXT);
   });
 });
