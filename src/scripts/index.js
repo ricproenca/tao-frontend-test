@@ -1,4 +1,9 @@
-import "../styles/normalize.css";
+// import "../styles/normalize.css";
+import "../styles/bootstrap.css";
 import "../styles/main.css";
 
-console.log("INDEX");
+import App from "./containers/App";
+
+window.onload = () => {
+  App.start();
+};

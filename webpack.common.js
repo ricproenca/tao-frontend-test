@@ -8,7 +8,7 @@ const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   entry: {
-    polyfill: "babel-polyfill",
+    vendor: ["babel-polyfill", "jquery", "bootstrap"],
     app: "./src/scripts/index.js"
   },
   module: {
@@ -66,12 +66,21 @@ module.exports = {
   ],
   output: {
     filename: devMode ? "[name].js" : "[name].[hash].js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    chunkFilename: "[name].[chunkhash].bundle.js",
+    publicPath: "/"
   },
   optimization: {
-    // prevent to duplicate dependencies
+    runtimeChunk: "single",
     splitChunks: {
-      chunks: "all"
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          enforce: true,
+          chunks: "all"
+        }
+      }
     }
   }
 };
