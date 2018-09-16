@@ -1,5 +1,7 @@
 # TAO Frontend Specialist Test
 
+https://www.youtube.com/watch?v=ZZncFax8yNY
+
 ## Helpers
 
 - [HTML5 Tutorial](http://tutorials.jenkov.com/html5/index.html)

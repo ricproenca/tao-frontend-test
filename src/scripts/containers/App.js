@@ -1,18 +1,9 @@
-import Users from "./Users";
+import TestTakers from "./TestTakers";
 
-/**
- * The Main Application
- *
- * @class App
- */
 class App {
-  /**
-   * Start the application
-   * -
-   */
   static async start() {
-    const users = new Users();
-    users.listUsers();
+    const testTakers = new TestTakers();
+    testTakers.showAsTable();
   }
 }
 

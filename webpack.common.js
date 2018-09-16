@@ -33,6 +33,15 @@ module.exports = {
         use: ["file-loader"]
       },
       {
+        test: /\.csv$/,
+        loader: "csv-loader",
+        options: {
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true
+        }
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {

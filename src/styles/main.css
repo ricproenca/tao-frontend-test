@@ -41,11 +41,21 @@ MEDIA QUERIES
 @media (min-width: 1200px) {
 }
 
+.table-users {
+  border: 0;
+}
+
 .table-users tbody tr:hover {
   cursor: pointer;
   background-color: #eee;
 }
 
-.nav-user-photo {
+.user-photo {
   vertical-align: middle;
+  height: 50px;
+  width: 50px;
+}
+
+.user-headers {
+  font-weight: bold;
 }

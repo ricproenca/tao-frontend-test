@@ -1,29 +1,69 @@
-const capitalize = str => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
+import { tableColumns } from "../config.json";
+import { capitalizeFirst } from "../utils/text";
 class Table {
-  constructor(parent = undefined) {
-    this._parent = parent;
-    this._elementAsString = "";
+  constructor() {
+    this._tbl = null;
   }
 
-  append(data) {
-    let str = '<table class="table-users table" border="0"><tbody>';
-    data.map(item => {
-      str += `<tr>
-      <td width="10" align="center align-middle">
-      <img class="pull-left img-circle nav-user-photo" width="50"
-      src="${item.picture}" />
-      </td>
-      <td class="align-middle">${capitalize(item.title)} ${capitalize(
-        item.firstName
-      )} ${capitalize(item.lastName)}</td>`;
-    });
-    str += "</tbody></table>";
-    this._elementAsString = str;
+  _createImageCell(picture) {
+    const img = document.createElement("img");
+    img.className = "user-photo";
+    img.setAttribute("src", picture);
+    img.setAttribute("alt", "User photo");
 
-    this._parent.append(this._elementAsString);
+    const fig = document.createElement("figure");
+    fig.appendChild(img);
+
+    return fig;
+  }
+
+  _fillHeaders(data) {
+    const header = this._tbl.createTHead();
+    const row = header.insertRow();
+    tableColumns.map(column => {
+      if (data[0][column.name]) {
+        const cell = row.insertCell();
+        cell.innerHTML = capitalizeFirst(column.name);
+        cell.className = "user-headers";
+      }
+    });
+  }
+
+  _fillBody(data) {
+    const body = this._tbl.createTBody();
+
+    data.map(item => {
+      const row = body.insertRow();
+      tableColumns.map(column => {
+        if (item[column.name]) {
+          const cell = row.insertCell();
+          switch (column.type) {
+            case "text":
+              cell.innerHTML = capitalizeFirst(item[column.name]);
+              break;
+            case "image":
+              const img = this._createImageCell(item.picture);
+              cell.appendChild(img);
+              break;
+            default:
+              cell.innerHTML = "---";
+          }
+        }
+      });
+    });
+    return body;
+  }
+
+  setData(data, parent) {
+    this._data = data;
+
+    this._tbl = document.createElement("table");
+    this._tbl.className = "table-users table";
+
+    this._fillHeaders(data);
+    this._fillBody(data);
+
+    parent[0].appendChild(this._tbl);
   }
 }
 

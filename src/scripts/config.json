@@ -1,0 +1,14 @@
+{
+  "service": "rest",
+  "restApiUrl": "https://hr.oat.taocloud.org/v1/",
+  "tableColumns": [
+    { "name": "userId", "type": "text" },
+    { "name": "picture", "type": "image" },
+    { "name": "firstname", "type": "text" },
+    { "name": "firstName", "type": "text" },
+    { "name": "lastname", "type": "text" },
+    { "name": "lastName", "type": "text" },
+    { "name": "gender", "type": "text" },
+    { "name": "address", "type": "text" }
+  ]
+}
